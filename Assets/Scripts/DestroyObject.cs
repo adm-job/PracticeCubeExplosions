@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyObject : MonoBehaviour
 {
-    void lastUpdate()
+    private void Update()
     {
         if (gameObject.transform.position.y < -2)
             GameObject.Destroy(gameObject);
