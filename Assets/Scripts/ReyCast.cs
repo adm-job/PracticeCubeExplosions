@@ -11,9 +11,10 @@ public class ReyCast : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private Ray _ray;
     [SerializeField] private Vector3 _offset = new Vector3(2f,0,0);
-    [SerializeField] private float _maxDistans = 10f;
+    [SerializeField] private float _maxDistance = 10f;
     [SerializeField] private float _radius = 0.1f;
 
+    private float chance = 1;
     private System.Random _random = new(); 
 
     private void Update()
@@ -27,7 +28,7 @@ public class ReyCast : MonoBehaviour
 
         if (Physics.Raycast(_ray, out hit, Mathf.Infinity))
         {
-            Debug.DrawRay(_ray.origin, _ray.direction * _maxDistans, Color.red, 1f);
+            Debug.DrawRay(_ray.origin, _ray.direction * _maxDistance, Color.red, 1f);
 
             GameObject objectHit = hit.collider.gameObject;
             print(objectHit.name);
@@ -51,9 +52,6 @@ public class ReyCast : MonoBehaviour
                         Random.value,
                         Random.value
                     );
-
-
-                    // renderer.material.color = Color.red;
 
                 }
             }
