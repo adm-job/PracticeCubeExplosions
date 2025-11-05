@@ -16,12 +16,12 @@ public class CopyObject : MonoBehaviour
 
     private void OnEnable()
     {
-        _rayCast.RaycastHit += Copy;
+        _rayCast.OnRaycastHit += Copy;
     }
 
     private void OnDisable()
     {
-        _rayCast.RaycastHit -= Copy;
+        _rayCast.OnRaycastHit -= Copy;
     }
 
     private void Start()

@@ -7,7 +7,9 @@ public class CopyChance : MonoBehaviour
     private float _chance = 1;
     public bool Chance()
     {
-        if (Random.value < _chance)
+        float chance = Random.value;
+
+        if (chance <= _chance)
         {
             _chance /= 2;
             return true;
