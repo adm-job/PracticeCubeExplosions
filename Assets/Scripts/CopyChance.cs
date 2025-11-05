@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CopyChance : MonoBehaviour
 {
-    private float _chance = 1;
+    private float _chance = 1f;
+    float chance;
+    
     public bool Chance()
     {
-        float chance = Random.value;
-
+        chance = Random.value;
         if (chance <= _chance)
         {
             _chance /= 2;

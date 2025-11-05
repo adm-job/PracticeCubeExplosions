@@ -10,9 +10,9 @@ public class CopyObject : MonoBehaviour
 
     [SerializeField] private Vector3 _offset = new Vector3(0, 2f, 0);
 
-    private CopyChance _copyChance;
+    private CopyChance _copyChance = new();
 
-    private float _maxClone;
+    private float _maxClone = 5;
 
     private void OnEnable()
     {
@@ -33,7 +33,6 @@ public class CopyObject : MonoBehaviour
     {
         if (_copyChance.Chance())
         {
-
             for (float i = 0; i < _maxClone; i++)
             {
                 GameObject clone = Instantiate(
@@ -47,15 +46,19 @@ public class CopyObject : MonoBehaviour
 
                 Renderer renderer = clone.GetComponent<Renderer>();
 
-                    if (renderer != null)
-                    {
-                        renderer.material.color = new Color(
-                            Random.value,
-                            Random.value,
-                            Random.value
-                    );
+                if (renderer != null)
+                {
+                    renderer.material.color = new Color(
+                        Random.value,
+                        Random.value,
+                        Random.value
+                );
                 }
             }
+        }
+        else
+        {
+            GameObject.Destroy(gameObject);
         }
     }
 }
