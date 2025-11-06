@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyObject : MonoBehaviour
+public class ObjectDestroy : MonoBehaviour
 {
     private void Update()
     {

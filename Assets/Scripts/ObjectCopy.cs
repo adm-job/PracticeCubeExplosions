@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CopyObject : MonoBehaviour
+public class ObjectCopy : MonoBehaviour
 {
 
-    [SerializeField] private RayCast _rayCast;
+    [SerializeField] private Raycastre _rayCast;
 
     [SerializeField] private Vector3 _offset = new Vector3(0, 2f, 0);
 
-    private CopyChance _copyChance = new();
+    private ChanceCopy _copyChance = new();
 
     private float _maxClone = 5;
 
     private void OnEnable()
     {
-        _rayCast.OnRaycastHit += Copy;
+        _rayCast.ObjectSelected += Copy;
     }
 
     private void OnDisable()
     {
-        _rayCast.OnRaycastHit -= Copy;
+        _rayCast.ObjectSelected -= Copy;
     }
 
     private void Start()

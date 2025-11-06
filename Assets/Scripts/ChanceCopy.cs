@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CopyChance : MonoBehaviour
+public class ChanceCopy : MonoBehaviour
 {
     private float _chance = 1f;
     float chance;
