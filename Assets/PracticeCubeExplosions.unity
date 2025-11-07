@@ -723,11 +723,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1111043365}
-  - component: {fileID: 1111043364}
   - component: {fileID: 1111043363}
   - component: {fileID: 1111043362}
+  - component: {fileID: 1111043367}
+  - component: {fileID: 1111043366}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -757,23 +758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c622cea94762e4295b96edb9b23346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rayCast: {fileID: 1111043364}
+  _rayCast: {fileID: 1111043367}
   _offset: {x: 0, y: 2, z: 0}
---- !u!114 &1111043364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111043361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37bb5ccf9cb0a814b8cb2c5afc08ee17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 459480853}
-  _maxDistance: 10
-  _radius: 0.1
 --- !u!4 &1111043365
 Transform:
   m_ObjectHideFlags: 0
@@ -789,6 +775,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1111043366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111043361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a862b4cac15b6418e9d10207e03d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1111043367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111043361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9776243a401d3e64a95790655263cb2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 459480853}
+  _maxDistance: 10
+  _radius: 0.1
+  _mouseInput: {fileID: 1111043366}
 --- !u!1 &1509745903
 GameObject:
   m_ObjectHideFlags: 0
