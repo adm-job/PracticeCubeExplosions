@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ObjectCopy : MonoBehaviour
 {
+    [SerializeField] private ExplosionDestroyed _destroy = new ();
 
     [SerializeField] private Raycastre _rayCast;
 
@@ -58,6 +59,7 @@ public class ObjectCopy : MonoBehaviour
         }
         else
         {
+            _destroy.Exploded();
             GameObject.Destroy(gameObject);
         }
     }

@@ -440,7 +440,6 @@ GameObject:
   - component: {fileID: 347445788}
   - component: {fileID: 347445787}
   - component: {fileID: 347445792}
-  - component: {fileID: 347445793}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -573,20 +572,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &347445793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347445786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f7e71cc2a1b1fd498e268d9e8b4dec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _explosionRadius: 300
-  _explosionForce: 1000
 --- !u!1 &459480852
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,6 +712,7 @@ GameObject:
   - component: {fileID: 1111043362}
   - component: {fileID: 1111043367}
   - component: {fileID: 1111043366}
+  - component: {fileID: 1111043368}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -758,6 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c622cea94762e4295b96edb9b23346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroy: {fileID: 1111043368}
   _rayCast: {fileID: 1111043367}
   _offset: {x: 0, y: 2, z: 0}
 --- !u!4 &1111043365
@@ -803,6 +790,20 @@ MonoBehaviour:
   _maxDistance: 10
   _radius: 0.1
   _mouseInput: {fileID: 1111043366}
+--- !u!114 &1111043368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111043361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7e71cc2a1b1fd498e268d9e8b4dec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionRadius: 600
+  _explosionForce: 500
 --- !u!1 &1509745903
 GameObject:
   m_ObjectHideFlags: 0
