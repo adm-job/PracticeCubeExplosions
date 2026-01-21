@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ObjectCopy : MonoBehaviour
 {
-    [SerializeField] private ExplosionDestroyed _destroy = new ();
+    [SerializeField] private Explosion _destroy = new ();
 
     [SerializeField] private Raycastre _rayCast;
 

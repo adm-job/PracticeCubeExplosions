@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosionDestroyed : MonoBehaviour
+public class Explosion : MonoBehaviour
 {
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
@@ -24,15 +24,15 @@ public class ExplosionDestroyed : MonoBehaviour
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius);
 
-        List<Rigidbody> ExplosionObjects = new ();
+        List<Rigidbody> explosionObjects = new ();
 
         foreach (var hit in hits)
         {
             if(hit.attachedRigidbody  != null)
             {
-                ExplosionObjects.Add(hit.attachedRigidbody);
+                explosionObjects.Add(hit.attachedRigidbody);
             }
         }
-        return ExplosionObjects;
+        return explosionObjects;
     }
 }
