@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c622cea94762e4295b96edb9b23346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroy: {fileID: 0}
   _rayCast: {fileID: 969189099}
   _offset: {x: 0, y: 2, z: 0}
 --- !u!114 &969189102
@@ -585,7 +586,7 @@ GameObject:
   - component: {fileID: 1983770146}
   - component: {fileID: 1983770145}
   - component: {fileID: 1983770148}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
