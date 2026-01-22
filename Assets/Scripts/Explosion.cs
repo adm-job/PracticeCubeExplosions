@@ -19,7 +19,7 @@ public class Explosion : MonoBehaviour
             explosionObject.AddExplosionForce(_explosionForce, transform.position,_explosionRadius);
         }
     }
-
+    //to do здесь нужны правки что бы получить созданные кубы и раскидать только их
     private List<Rigidbody> GetExplodableObject()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius);

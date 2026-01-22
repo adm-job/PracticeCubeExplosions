@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ObjectCopy : MonoBehaviour
+public class Cube : MonoBehaviour
 {
-    [SerializeField] private Explosion _destroy = new ();
+    [SerializeField] private Explosion _explosion = new();
 
-    [SerializeField] private Raycastre _rayCast;
+    [SerializeField] private Raycastre _raycastre;
 
     [SerializeField] private Vector3 _offset = new Vector3(0, 2f, 0);
 
-    private ChanceCopy _copyChance = new();
+    private DivisableObject _divisableObject = new();
 
     private float _maxClone = 5;
 
     private void OnEnable()
     {
-        _rayCast.ObjectSelected += Copy;
+        _raycastre.ObjectSelected += Copy;
     }
 
     private void OnDisable()
     {
-        _rayCast.ObjectSelected -= Copy;
+        _raycastre.ObjectSelected -= Copy;
     }
 
     private void Start()
@@ -32,7 +32,7 @@ public class ObjectCopy : MonoBehaviour
 
     void Copy(GameObject gameObject)
     {
-        if (_copyChance.Chance())
+        if (_divisableObject.Chance())
         {
             for (float i = 0; i < _maxClone; i++)
             {
@@ -53,13 +53,13 @@ public class ObjectCopy : MonoBehaviour
                         Random.value,
                         Random.value,
                         Random.value
-                );
+                        );
                 }
             }
         }
         else
         {
-            _destroy.Exploded();
+            _explosion.Exploded();
             GameObject.Destroy(gameObject);
         }
     }

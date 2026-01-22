@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngine.Events;
+using System;
 
 public class Raycastre : MonoBehaviour
 {
-    public event UnityAction <GameObject> ObjectSelected;  
+    public event Action <GameObject> ObjectSelected;  
 
     [SerializeField] private Camera _camera;
     [SerializeField] private float _maxDistance = 10f;
