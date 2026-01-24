@@ -6,7 +6,7 @@ public class Raycastre : MonoBehaviour
     public event Action <GameObject> ObjectSelected;  
 
     [SerializeField] private Camera _camera;
-    [SerializeField] private float _maxDistance = 10f;
+    [SerializeField] private float _maxDistance = 20f;
     [SerializeField] private float _radius = 0.1f;
     [SerializeField] private MouseInput _mouseInput;
 

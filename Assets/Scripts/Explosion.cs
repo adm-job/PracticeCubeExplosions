@@ -7,37 +7,34 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
 
-    private CubeSpawner cube;
+    private CubeSpawner _cubeSpawner;
+    private List<Rigidbody> _objectRigidbody;
 
-    private void OnDestroy()
+    private void OnEnable()
     {
-        Exploded();
+        _cubeSpawner.OnCubesSpawned += GetExplodableObject;
+    }
+
+    private void OnDisable()
+    {
+        _cubeSpawner.OnCubesSpawned += GetExplodableObject;
     }
 
     public void Exploded()
     {
-        foreach (var explosionObject in GetExplodableObject())
+        foreach (var explosionObject in _objectRigidbody)
         {
             explosionObject.AddExplosionForce(_explosionForce, transform.position,_explosionRadius);
         }
     }
-    //to do здесь нужны правки что бы получить созданные кубы и раскидать только их
-    private List<Rigidbody> GetExplodableObject()
+    
+    private void GetExplodableObject(List<GameObject> gameObjects)
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius);
 
-        cube.ReturnClon();
-        cubes = cube.ReturnClon();
-
-        //List<Rigidbody> explosionObjects = new ();
-
-        foreach (var hit in hits)
+        foreach (var gameObject in gameObjects)
         {
-            if(hit.attachedRigidbody  != null)
-            {
-                explosionObjects.Add(hit.attachedRigidbody);
-            }
+            _objectRigidbody.Add(gameObject.GetComponent<Rigidbody>());
         }
-        return explosionObjects;
     }
 }

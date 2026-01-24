@@ -46,8 +46,6 @@ public class CubeSpawner : MonoBehaviour
                     gameObject.transform.rotation
                     );
 
-                SpawnedCubes.Add(clone);
-
                 clone.name = gameObject.name + "_Copy";
                 clone.transform.localScale = new Vector3(clone.transform.localScale.x / 2, clone.transform.localScale.y / 2, clone.transform.localScale.z / 2);
 
@@ -61,12 +59,16 @@ public class CubeSpawner : MonoBehaviour
                         UnityEngine.Random.value
                         );
                 }
+
+                SpawnedCubes.Add(clone);
             }
+
+            OnCubesSpawned?.Invoke(SpawnedCubes);
+            GameObject.Destroy(gameObject);
+            _explosion.Exploded();
         }
         else
         {
-            OnCubesSpawned?.Invoke(SpawnedCubes);
-            _explosion.Exploded();
             GameObject.Destroy(gameObject);
         }
     }
