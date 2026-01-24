@@ -1,9 +1,10 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Cube : MonoBehaviour
+public class CubeSpawner : MonoBehaviour
 {
     [SerializeField] private Explosion _explosion = new();
 
@@ -13,7 +14,8 @@ public class Cube : MonoBehaviour
 
     private DivisableObject _divisableObject = new();
 
-    public List<GameObject> ListClones = new();
+    public List<GameObject> SpawnedCubes = new();
+    public event Action<List<GameObject>> OnCubesSpawned; 
 
     private float _maxClone = 5;
 
@@ -29,7 +31,7 @@ public class Cube : MonoBehaviour
 
     private void Start()
     {
-        _maxClone = Random.Range(2f, 6f);
+        _maxClone = UnityEngine.Random.Range(2f, 6f);
     }
 
     private void Copy(GameObject gameObject)
@@ -44,7 +46,7 @@ public class Cube : MonoBehaviour
                     gameObject.transform.rotation
                     );
 
-                ListClones.Add(clone);
+                SpawnedCubes.Add(clone);
 
                 clone.name = gameObject.name + "_Copy";
                 clone.transform.localScale = new Vector3(clone.transform.localScale.x / 2, clone.transform.localScale.y / 2, clone.transform.localScale.z / 2);
@@ -54,15 +56,16 @@ public class Cube : MonoBehaviour
                 if (renderer != null)
                 {
                     renderer.material.color = new Color(
-                        Random.value,
-                        Random.value,
-                        Random.value
+                        UnityEngine.Random.value,
+                        UnityEngine.Random.value,
+                        UnityEngine.Random.value
                         );
                 }
             }
         }
         else
         {
+            OnCubesSpawned?.Invoke(SpawnedCubes);
             _explosion.Exploded();
             GameObject.Destroy(gameObject);
         }
@@ -70,7 +73,7 @@ public class Cube : MonoBehaviour
 
     public List<GameObject> ReturnClon()
     {
-        return  ListClones;
+        return  SpawnedCubes;
 
 }
 }

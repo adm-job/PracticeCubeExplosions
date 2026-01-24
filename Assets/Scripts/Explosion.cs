@@ -7,7 +7,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
 
-    private Cube cube;
+    private CubeSpawner cube;
 
     private void OnDestroy()
     {
