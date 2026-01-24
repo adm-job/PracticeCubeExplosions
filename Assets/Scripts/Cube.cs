@@ -13,6 +13,8 @@ public class Cube : MonoBehaviour
 
     private DivisableObject _divisableObject = new();
 
+    public List<GameObject> GameObgects = new();
+
     private float _maxClone = 5;
 
     private void OnEnable()
@@ -30,7 +32,7 @@ public class Cube : MonoBehaviour
         _maxClone = Random.Range(2f, 6f);
     }
 
-    void Copy(GameObject gameObject)
+    private void Copy(GameObject gameObject)
     {
         if (_divisableObject.Chance())
         {
@@ -41,6 +43,8 @@ public class Cube : MonoBehaviour
                     gameObject.transform.position + _offset,
                     gameObject.transform.rotation
                     );
+
+                GameObgects.Add(clone);
 
                 clone.name = gameObject.name + "_Copy";
                 clone.transform.localScale = new Vector3(clone.transform.localScale.x / 2, clone.transform.localScale.y / 2, clone.transform.localScale.z / 2);

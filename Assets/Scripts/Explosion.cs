@@ -24,6 +24,8 @@ public class Explosion : MonoBehaviour
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius);
 
+
+
         List<Rigidbody> explosionObjects = new ();
 
         foreach (var hit in hits)
