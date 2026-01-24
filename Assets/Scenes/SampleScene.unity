@@ -372,9 +372,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c622cea94762e4295b96edb9b23346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroy: {fileID: 0}
-  _rayCast: {fileID: 969189099}
+  _explosion: {fileID: 1028916103}
+  _raycastre: {fileID: 969189099}
   _offset: {x: 0, y: 2, z: 0}
+  ListClones: []
 --- !u!114 &969189102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +444,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028916096}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -686,5 +687,5 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1983770147}
-  - {fileID: 1028916101}
   - {fileID: 969189100}
+  - {fileID: 1028916101}

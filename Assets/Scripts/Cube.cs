@@ -13,7 +13,7 @@ public class Cube : MonoBehaviour
 
     private DivisableObject _divisableObject = new();
 
-    public List<GameObject> GameObgects = new();
+    public List<GameObject> ListClones = new();
 
     private float _maxClone = 5;
 
@@ -44,7 +44,7 @@ public class Cube : MonoBehaviour
                     gameObject.transform.rotation
                     );
 
-                GameObgects.Add(clone);
+                ListClones.Add(clone);
 
                 clone.name = gameObject.name + "_Copy";
                 clone.transform.localScale = new Vector3(clone.transform.localScale.x / 2, clone.transform.localScale.y / 2, clone.transform.localScale.z / 2);
@@ -67,4 +67,10 @@ public class Cube : MonoBehaviour
             GameObject.Destroy(gameObject);
         }
     }
+
+    public List<GameObject> ReturnClon()
+    {
+        return  ListClones;
+
+}
 }

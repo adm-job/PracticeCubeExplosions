@@ -7,6 +7,8 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
 
+    private Cube cube;
+
     private void OnDestroy()
     {
         Exploded();
@@ -24,9 +26,10 @@ public class Explosion : MonoBehaviour
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius);
 
+        cube.ReturnClon();
+        cubes = cube.ReturnClon();
 
-
-        List<Rigidbody> explosionObjects = new ();
+        //List<Rigidbody> explosionObjects = new ();
 
         foreach (var hit in hits)
         {
