@@ -317,11 +317,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 969189100}
-  - component: {fileID: 969189099}
   - component: {fileID: 969189102}
   - component: {fileID: 969189103}
   - component: {fileID: 969189104}
-  - component: {fileID: 969189105}
+  - component: {fileID: 969189106}
+  - component: {fileID: 969189107}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -329,22 +329,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &969189099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969189098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9776243a401d3e64a95790655263cb2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 963194227}
-  _maxDistance: 10
-  _radius: 0.1
-  _mouseInput: {fileID: 969189104}
 --- !u!4 &969189100
 Transform:
   m_ObjectHideFlags: 0
@@ -398,7 +382,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a862b4cac15b6418e9d10207e03d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &969189105
+--- !u!114 &969189106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969189098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eee4e772c1852f4cba1318a20c00039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 963194227}
+  _maxDistance: 20
+  _radius: 0.1
+  _mouseInput: {fileID: 969189104}
+--- !u!114 &969189107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosion: {fileID: 1028916103}
-  _raycastre: {fileID: 969189099}
+  _raycastre: {fileID: 969189106}
   _offset: {x: 0, y: 2, z: 0}
   SpawnedCubes: []
 --- !u!1 &1028916096
