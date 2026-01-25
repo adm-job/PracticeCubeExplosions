@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DivisableObject : MonoBehaviour
+public class Cube : MonoBehaviour
 {
     private float _chance = 1f;
     float chance;
     
-    public bool Chance()
+    public bool CreateChance()
     {
         chance = Random.value;
         if (chance <= _chance)

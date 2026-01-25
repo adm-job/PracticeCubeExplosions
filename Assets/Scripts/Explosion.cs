@@ -30,8 +30,6 @@ public class Explosion : MonoBehaviour
     
     private void GetExplodableObject(List<GameObject> gameObjects)
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius);
-
         foreach (var gameObject in gameObjects)
         {
             _objectRigidbody.Add(gameObject.GetComponent<Rigidbody>());

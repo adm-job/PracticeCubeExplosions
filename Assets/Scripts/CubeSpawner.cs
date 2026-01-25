@@ -8,14 +8,14 @@ public class CubeSpawner : MonoBehaviour
 {
     [SerializeField] private Explosion _explosion = new();
 
-    [SerializeField] private Raycastre _raycastre;
+    [SerializeField] private Raycaster _raycastre;
 
     [SerializeField] private Vector3 _offset = new Vector3(0, 2f, 0);
 
-    private DivisableObject _divisableObject = new();
+    private Cube _divisableObject = new();
 
     public List<GameObject> SpawnedCubes = new();
-    public event Action<List<GameObject>> OnCubesSpawned; 
+    public event Action<List<GameObject>> OnCubesSpawned;
 
     private float _maxClone = 5;
 
@@ -36,7 +36,7 @@ public class CubeSpawner : MonoBehaviour
 
     private void Copy(GameObject gameObject)
     {
-        if (_divisableObject.Chance())
+        if (_divisableObject.CreateChance())
         {
             for (float i = 0; i < _maxClone; i++)
             {
@@ -75,7 +75,6 @@ public class CubeSpawner : MonoBehaviour
 
     public List<GameObject> ReturnClon()
     {
-        return  SpawnedCubes;
-
-}
+        return SpawnedCubes;
+    }
 }

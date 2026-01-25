@@ -1,14 +1,14 @@
 using UnityEngine;
 using System;
 
-public class Raycastre : MonoBehaviour
+public class Raycaster : MonoBehaviour
 {
-    public event Action <GameObject> ObjectSelected;  
+    public event Action<GameObject> ObjectSelected;
 
     [SerializeField] private Camera _camera;
     [SerializeField] private float _maxDistance = 20f;
     [SerializeField] private float _radius = 0.1f;
-    [SerializeField] private MouseInput _mouseInput;
+    [SerializeField] private InputReader _mouseInput;
 
     private void OnEnable()
     {
@@ -22,9 +22,8 @@ public class Raycastre : MonoBehaviour
 
     private void RayCast()
     {
-
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-        
+
         RaycastHit hit;
 
         Debug.DrawRay(ray.origin, ray.direction * _maxDistance, Color.magenta);
@@ -34,8 +33,6 @@ public class Raycastre : MonoBehaviour
             GameObject objectHit = hit.collider.gameObject;
 
             ObjectSelected?.Invoke(objectHit);
-
-            GameObject.Destroy(objectHit);
         }
     }
 }
