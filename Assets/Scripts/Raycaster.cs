@@ -3,12 +3,12 @@ using System;
 
 public class Raycaster : MonoBehaviour
 {
-    public event Action<GameObject> ObjectSelected;
-
     [SerializeField] private Camera _camera;
     [SerializeField] private float _maxDistance = 20f;
     [SerializeField] private float _radius = 0.1f;
     [SerializeField] private InputReader _mouseInput;
+
+    public event Action<GameObject> ObjectSelected;
 
     private void OnEnable()
     {

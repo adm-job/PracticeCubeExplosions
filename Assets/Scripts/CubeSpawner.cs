@@ -7,17 +7,14 @@ using UnityEngine;
 public class CubeSpawner : MonoBehaviour
 {
     [SerializeField] private Explosion _explosion = new();
-
     [SerializeField] private Raycaster _raycastre;
-
     [SerializeField] private Vector3 _offset = new Vector3(0, 2f, 0);
 
     private Cube _divisableObject = new();
+    private float _maxClone = 5;
 
     public List<GameObject> SpawnedCubes = new();
     public event Action<List<GameObject>> OnCubesSpawned;
-
-    private float _maxClone = 5;
 
     private void OnEnable()
     {

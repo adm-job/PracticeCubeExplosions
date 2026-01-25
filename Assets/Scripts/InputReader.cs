@@ -5,12 +5,12 @@ using UnityEngine.Events;
 
 public class InputReader : MonoBehaviour
 {
+    private int _mouseButton = 0;
     public event Action Click;
-    private int MouseButton = 0;
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(MouseButton))
+        if (Input.GetMouseButtonDown(_mouseButton))
             Click?.Invoke();
     }
 }
