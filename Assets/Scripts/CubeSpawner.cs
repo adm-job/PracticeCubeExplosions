@@ -13,6 +13,7 @@ public class CubeSpawner : MonoBehaviour
     private Cube _divisableObject = new();
     private float _maxClone = 5f;
     private float _minClone = 2f;
+    private float _maxCubes;
 
     public List<GameObject> SpawnedCubes = new();
     public event Action<List<GameObject>> OnCubesSpawned;
@@ -29,14 +30,14 @@ public class CubeSpawner : MonoBehaviour
 
     private void Start()
     {
-        _maxClone = UnityEngine.Random.Range(_minClone, _maxClone + 1);
+        _maxCubes = UnityEngine.Random.Range(_minClone, _maxClone + 1);
     }
 
     private void Copy(GameObject gameObject)
     {
         if (_divisableObject.CreateChance())
         {
-            for (float i = 0; i < _maxClone; i++)
+            for (float i = 0; i < _maxCubes; i++)
             {
                 GameObject clone = Instantiate(
                     gameObject,
