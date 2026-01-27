@@ -11,7 +11,8 @@ public class CubeSpawner : MonoBehaviour
     [SerializeField] private Vector3 _offset = new Vector3(0, 2f, 0);
 
     private Cube _divisableObject = new();
-    private float _maxClone = 5;
+    private float _maxClone = 5f;
+    private float _minClone = 2f;
 
     public List<GameObject> SpawnedCubes = new();
     public event Action<List<GameObject>> OnCubesSpawned;
@@ -28,7 +29,7 @@ public class CubeSpawner : MonoBehaviour
 
     private void Start()
     {
-        _maxClone = UnityEngine.Random.Range(2f, 6f);
+        _maxClone = UnityEngine.Random.Range(_minClone, _maxClone + 1);
     }
 
     private void Copy(GameObject gameObject)

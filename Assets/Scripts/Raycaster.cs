@@ -33,6 +33,12 @@ public class Raycaster : MonoBehaviour
             GameObject objectHit = hit.collider.gameObject;
 
             ObjectSelected?.Invoke(objectHit);
+
+        
+            if (hit.collider.TryGetComponent<Cube>(out var cube))
+        {
+            ObjectSelected?.Invoke(cube);
+        }
         }
     }
 }
