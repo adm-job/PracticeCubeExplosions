@@ -31,14 +31,11 @@ public class Raycaster : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             GameObject objectHit = hit.collider.gameObject;
+            //bjectHit = hit.
 
             ObjectSelected?.Invoke(objectHit);
 
         
-            if (hit.collider.TryGetComponent<Cube>(out var cube))
-        {
-            ObjectSelected?.Invoke(cube);
-        }
         }
     }
 }

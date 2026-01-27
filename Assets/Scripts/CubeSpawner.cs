@@ -10,7 +10,7 @@ public class CubeSpawner : MonoBehaviour
     [SerializeField] private Raycaster _raycastre;
     [SerializeField] private Vector3 _offset = new Vector3(0, 2f, 0);
 
-    private Cube _divisableObject = new();
+    private RandomCountChance _divisableObject = new();
     private float _maxClone = 5f;
     private float _minClone = 2f;
     private float _maxCubes;

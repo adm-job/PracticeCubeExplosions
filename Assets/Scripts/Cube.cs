@@ -1,23 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    private float _chance = 1f;
-    float chance;
-    
-    public bool CreateChance()
+    public void Select()
     {
-        chance = Random.value;
-        if (chance <= _chance)
-        {
-            _chance /= 2;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        Debug.Log("Êóá");
     }
 }
