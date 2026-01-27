@@ -7,8 +7,9 @@ public class Raycaster : MonoBehaviour
     [SerializeField] private float _maxDistance = 20f;
     [SerializeField] private float _radius = 0.1f;
     [SerializeField] private InputReader _mouseInput;
+    [SerializeField] private Cube _cube;
 
-    public event Action<GameObject> ObjectSelected;
+    public event Action<Cube> ObjectSelected;
 
     private void OnEnable()
     {
@@ -31,11 +32,13 @@ public class Raycaster : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             GameObject objectHit = hit.collider.gameObject;
-            //bjectHit = hit.
-
-            ObjectSelected?.Invoke(objectHit);
-
-        
+            
+            if (hit.collider.TryGetComponent<Cube>(out var _cube))
+            {
+                _cube.Select();
+                ObjectSelected?.Invoke(_cube);
+            }
+            //ObjectSelected?.Invoke(objectHit);
         }
     }
 }

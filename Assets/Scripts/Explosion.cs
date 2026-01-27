@@ -7,8 +7,8 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
 
-    private CubeSpawner _cubeSpawner;
-    private List<Rigidbody> _objectRigidbody;
+    private CubeMaker _cubeSpawner;
+    private List<Rigidbody> _cubeRigidbody;
 
     private void OnEnable()
     {
@@ -22,17 +22,17 @@ public class Explosion : MonoBehaviour
 
     public void Exploded()
     {
-        foreach (var explosionObject in _objectRigidbody)
+        foreach (var explosionObject in _cubeRigidbody)
         {
             explosionObject.AddExplosionForce(_explosionForce, transform.position,_explosionRadius);
         }
     }
     
-    private void GetExplodableObject(List<GameObject> gameObjects)
+    private void GetExplodableObject(List<Cube> cubes)
     {
-        foreach (var gameObject in gameObjects)
+        foreach (var cube in cubes)
         {
-            _objectRigidbody.Add(gameObject.GetComponent<Rigidbody>());
+            _cubeRigidbody.Add(gameObject.GetComponent<Rigidbody>());
         }
     }
 }

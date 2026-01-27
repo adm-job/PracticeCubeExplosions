@@ -4,19 +4,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CubeSpawner : MonoBehaviour
+public class CubeMaker : MonoBehaviour
 {
     [SerializeField] private Explosion _explosion = new();
     [SerializeField] private Raycaster _raycastre;
     [SerializeField] private Vector3 _offset = new Vector3(0, 2f, 0);
 
-    private RandomCountChance _divisableObject = new();
+    private RandomCountChance _divisibleObject = new();
     private float _maxClone = 5f;
     private float _minClone = 2f;
     private float _maxCubes;
 
-    public List<GameObject> SpawnedCubes = new();
-    public event Action<List<GameObject>> OnCubesSpawned;
+    public List<Cube> SpawnedCubes = new();
+    public event Action<List<Cube>> OnCubesSpawned;
 
     private void OnEnable()
     {
@@ -33,19 +33,19 @@ public class CubeSpawner : MonoBehaviour
         _maxCubes = UnityEngine.Random.Range(_minClone, _maxClone + 1);
     }
 
-    private void Copy(GameObject gameObject)
+    private void Copy(Cube cube)
     {
-        if (_divisableObject.CreateChance())
+        if (_divisibleObject.CreateChance())
         {
             for (float i = 0; i < _maxCubes; i++)
             {
-                GameObject clone = Instantiate(
-                    gameObject,
-                    gameObject.transform.position + _offset,
-                    gameObject.transform.rotation
+                Cube clone = Instantiate(
+                    cube,
+                    cube.transform.position + _offset,
+                    cube.transform.rotation
                     );
 
-                clone.name = gameObject.name + "_Copy";
+                clone.name = cube.name;
                 clone.transform.localScale = new Vector3(clone.transform.localScale.x / 2, clone.transform.localScale.y / 2, clone.transform.localScale.z / 2);
 
                 Renderer renderer = clone.GetComponent<Renderer>();
@@ -63,7 +63,7 @@ public class CubeSpawner : MonoBehaviour
             }
 
             OnCubesSpawned?.Invoke(SpawnedCubes);
-            GameObject.Destroy(gameObject);
+            Cube.Destroy(cube);
             _explosion.Exploded();
         }
         else
@@ -72,7 +72,7 @@ public class CubeSpawner : MonoBehaviour
         }
     }
 
-    public List<GameObject> ReturnClon()
+    public List<Cube> ReturnClone()
     {
         return SpawnedCubes;
     }
