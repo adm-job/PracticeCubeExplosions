@@ -317,10 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 969189100}
-  - component: {fileID: 969189102}
-  - component: {fileID: 969189103}
   - component: {fileID: 969189104}
-  - component: {fileID: 969189106}
   - component: {fileID: 969189107}
   m_Layer: 0
   m_Name: Spawner
@@ -344,32 +341,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &969189102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969189098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 855b8a4fcb1d5744b8dcc6c4176d9385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &969189103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969189098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f7e71cc2a1b1fd498e268d9e8b4dec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _explosionRadius: 5
-  _explosionForce: 5
 --- !u!114 &969189104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,23 +353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a862b4cac15b6418e9d10207e03d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &969189106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969189098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eee4e772c1852f4cba1318a20c00039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 963194227}
-  _maxDistance: 20
-  _radius: 0.1
-  _mouseInput: {fileID: 969189104}
-  _cube: {fileID: 1028916104}
 --- !u!114 &969189107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,8 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c622cea94762e4295b96edb9b23346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosion: {fileID: 1028916103}
-  _raycastre: {fileID: 969189106}
+  _raycastre: {fileID: 1826432378}
   _offset: {x: 0, y: 2, z: 0}
   SpawnedCubes: []
 --- !u!1 &1028916096
@@ -598,6 +551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1826432376}
+  - component: {fileID: 1826432378}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -620,6 +574,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1826432378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826432375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eee4e772c1852f4cba1318a20c00039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 963194227}
+  _maxDistance: 20
+  _radius: 0.1
+  _mouseInput: {fileID: 969189104}
+  _cube: {fileID: 1028916104}
 --- !u!1 &1983770142
 GameObject:
   m_ObjectHideFlags: 0

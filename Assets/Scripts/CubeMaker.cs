@@ -69,9 +69,4 @@ public class CubeMaker : MonoBehaviour
             cube.Destroy();
         }
     }
-
-    //public List<Cube> ReturnClone()
-    //{
-    //    return SpawnedCubes;
-    //}
 }

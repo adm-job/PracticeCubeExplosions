@@ -20,19 +20,11 @@ public class Explosion : MonoBehaviour
         _cubeSpawner.OnCubesSpawned += Exploded;
     }
 
-    public void Exploded(List<Rigidbody> rigidbodies)
+    public void Exploded(List<Rigidbody> cubeRigidbody)
     {
-        foreach (var explosionCubes in rigidbodies)
+        foreach (var explosionCubes in cubeRigidbody)
         {
             explosionCubes.AddExplosionForce(_explosionForce, transform.position,_explosionRadius);
         }
     }
-    
-    //private void GetExplodableObject(List<Cube> cubes)
-    //{
-    //    foreach (var cube in cubes)
-    //    {
-    //        _cubeRigidbody.Add(cube.GetComponent<Rigidbody>());
-    //    }
-    //}
 }
