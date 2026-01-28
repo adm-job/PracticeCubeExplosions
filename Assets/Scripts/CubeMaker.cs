@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class CubeMaker : MonoBehaviour
 {
-    [SerializeField] private Explosion _explosion = new();
     [SerializeField] private Raycaster _raycastre;
     [SerializeField] private Vector3 _offset = new Vector3(0, 2f, 0);
 
@@ -15,8 +14,8 @@ public class CubeMaker : MonoBehaviour
     private float _minClone = 2f;
     private float _maxCubes;
 
-    public List<Cube> SpawnedCubes = new();
-    public event Action<List<Cube>> OnCubesSpawned;
+    public List<Rigidbody> SpawnedCubes = new();
+    public event Action<List<Rigidbody>> OnCubesSpawned;
 
     private void OnEnable()
     {
@@ -59,21 +58,20 @@ public class CubeMaker : MonoBehaviour
                         );
                 }
 
-                SpawnedCubes.Add(clone);
+                SpawnedCubes.Add(clone.GetComponent<Rigidbody>());
             }
 
             OnCubesSpawned?.Invoke(SpawnedCubes);
-            Cube.Destroy(cube);
-            _explosion.Exploded();
+            cube.Destroy();
         }
         else
         {
-            GameObject.Destroy(gameObject);
+            cube.Destroy();
         }
     }
 
-    public List<Cube> ReturnClone()
-    {
-        return SpawnedCubes;
-    }
+    //public List<Cube> ReturnClone()
+    //{
+    //    return SpawnedCubes;
+    //}
 }

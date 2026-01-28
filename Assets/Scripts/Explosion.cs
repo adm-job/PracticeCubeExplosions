@@ -12,27 +12,27 @@ public class Explosion : MonoBehaviour
 
     private void OnEnable()
     {
-        _cubeSpawner.OnCubesSpawned += GetExplodableObject;
+        _cubeSpawner.OnCubesSpawned += Exploded;
     }
 
     private void OnDisable()
     {
-        _cubeSpawner.OnCubesSpawned += GetExplodableObject;
+        _cubeSpawner.OnCubesSpawned += Exploded;
     }
 
-    public void Exploded()
+    public void Exploded(List<Rigidbody> rigidbodies)
     {
-        foreach (var explosionObject in _cubeRigidbody)
+        foreach (var explosionCubes in rigidbodies)
         {
-            explosionObject.AddExplosionForce(_explosionForce, transform.position,_explosionRadius);
+            explosionCubes.AddExplosionForce(_explosionForce, transform.position,_explosionRadius);
         }
     }
     
-    private void GetExplodableObject(List<Cube> cubes)
-    {
-        foreach (var cube in cubes)
-        {
-            _cubeRigidbody.Add(gameObject.GetComponent<Rigidbody>());
-        }
-    }
+    //private void GetExplodableObject(List<Cube> cubes)
+    //{
+    //    foreach (var cube in cubes)
+    //    {
+    //        _cubeRigidbody.Add(cube.GetComponent<Rigidbody>());
+    //    }
+    //}
 }
