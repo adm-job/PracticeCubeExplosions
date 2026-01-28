@@ -8,7 +8,6 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _explosionForce;
 
     private CubeMaker _cubeSpawner;
-    private List<Rigidbody> _cubeRigidbody;
 
     private void OnEnable()
     {
