@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ObjectDestroy : MonoBehaviour
 {
+    private float _minHeight = -2;
     private void Update()
     {
-        if (gameObject.transform.position.y < -2)
+
+        if (gameObject.transform.position.y < _minHeight)
             GameObject.Destroy(gameObject);
     }
 }

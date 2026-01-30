@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomCountChance : MonoBehaviour
 {
     private float _chance = 1f;
-    float chance;
+    private float chance;
     
     public bool CreateChance()
     {

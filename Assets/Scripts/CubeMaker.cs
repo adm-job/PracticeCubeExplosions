@@ -14,7 +14,7 @@ public class CubeMaker : MonoBehaviour
     private float _minClone = 2f;
     private float _maxCubes;
 
-    public List<Rigidbody> SpawnedCubes = new();
+    public List<Rigidbody> SpawnedCubes;
     public event Action<List<Rigidbody>> OnCubesSpawned;
 
     private void OnEnable()
@@ -62,11 +62,11 @@ public class CubeMaker : MonoBehaviour
             }
 
             OnCubesSpawned?.Invoke(SpawnedCubes);
-            cube.Destroy();
+            Destroy(cube.gameObject);
         }
         else
         {
-            cube.Destroy();
+            Destroy(cube.gameObject);
         }
     }
 }

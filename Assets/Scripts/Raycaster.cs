@@ -13,12 +13,12 @@ public class Raycaster : MonoBehaviour
 
     private void OnEnable()
     {
-        _mouseInput.Click += RayCast;
+        _mouseInput.Clicked += RayCast;
     }
 
     private void OnDisable()
     {
-        _mouseInput.Click -= RayCast;
+        _mouseInput.Clicked -= RayCast;
     }
 
     private void RayCast()
@@ -35,10 +35,8 @@ public class Raycaster : MonoBehaviour
             
             if (hit.collider.TryGetComponent<Cube>(out var _cube))
             {
-                _cube.Select();
                 ObjectSelected?.Invoke(_cube);
             }
-            //ObjectSelected?.Invoke(objectHit);
         }
     }
 }
