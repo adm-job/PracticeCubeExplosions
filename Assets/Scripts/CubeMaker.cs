@@ -47,17 +47,17 @@ public class CubeMaker : MonoBehaviour
                     cube.transform.rotation
                     );
 
-                clone.name = cube.name;
+                clone.name = cube.name +""+ i;
                 clone.transform.localScale = new Vector3(clone.transform.localScale.x / 2, clone.transform.localScale.y / 2, clone.transform.localScale.z / 2);
 
-                Renderer renderer = clone.GetComponent<Renderer>();
+                //Renderer renderer = clone.Renderer;
 
-                if (renderer != null)
-                {
-                    renderer.material.color = UnityEngine.Random.ColorHSV();
-                }
+                //if (renderer != null)
+                //{
+                    clone.MeshRenderer.material.color = UnityEngine.Random.ColorHSV();
+                //}
 
-                RigidbodyCubes.Add(clone.GetComponent<Rigidbody>());
+                RigidbodyCubes.Add(clone.Rigidbody);
             }
 
             CubesSpawned?.Invoke(RigidbodyCubes);
