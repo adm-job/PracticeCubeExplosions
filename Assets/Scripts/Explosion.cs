@@ -11,12 +11,12 @@ public class Explosion : MonoBehaviour
 
     private void OnEnable()
     {
-        _cubeSpawner.OnCubesSpawned += Exploded;
+        _cubeSpawner.CubesSpawned += Exploded;
     }
 
     private void OnDisable()
     {
-        _cubeSpawner.OnCubesSpawned += Exploded;
+        _cubeSpawner.CubesSpawned += Exploded;
     }
 
     public void Exploded(List<Rigidbody> cubeRigidbody)

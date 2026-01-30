@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Drawing;
 
 public class CubeMaker : MonoBehaviour
 {
@@ -14,17 +15,19 @@ public class CubeMaker : MonoBehaviour
     private float _minClone = 2f;
     private float _maxCubes;
 
-    public List<Rigidbody> SpawnedCubes;
-    public event Action<List<Rigidbody>> OnCubesSpawned;
+    public List<Rigidbody> RigidbodyCubes;
+    public event Action<List<Rigidbody>> CubesSpawned;
 
     private void OnEnable()
     {
         _raycastre.ObjectSelected += Copy;
+        _raycastre.ObjectSelected += Remove;
     }
 
     private void OnDisable()
     {
         _raycastre.ObjectSelected -= Copy;
+        _raycastre.ObjectSelected -= Remove;
     }
 
     private void Start()
@@ -51,22 +54,18 @@ public class CubeMaker : MonoBehaviour
 
                 if (renderer != null)
                 {
-                    renderer.material.color = new Color(
-                        UnityEngine.Random.value,
-                        UnityEngine.Random.value,
-                        UnityEngine.Random.value
-                        );
+                    renderer.material.color = UnityEngine.Random.ColorHSV();
                 }
 
-                SpawnedCubes.Add(clone.GetComponent<Rigidbody>());
+                RigidbodyCubes.Add(clone.GetComponent<Rigidbody>());
             }
 
-            OnCubesSpawned?.Invoke(SpawnedCubes);
-            Destroy(cube.gameObject);
+            CubesSpawned?.Invoke(RigidbodyCubes);
         }
-        else
-        {
-            Destroy(cube.gameObject);
-        }
+    }
+
+    private void Remove(Cube cube)
+    {
+        Destroy(cube.gameObject);
     }
 }
