@@ -9,14 +9,14 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    private RandomCountChance randomChance = new();
+    [SerializeField] private RandomCountChance _randomChance;
     public MeshRenderer MeshRenderer { get; set; }
     public Rigidbody Rigidbody { get; set; }
 
 
     public bool ReturnChance()
     {
-        bool chance = randomChance.CreateChance();
+        bool chance = _randomChance.CreateChance();
 
         return chance;
     }
