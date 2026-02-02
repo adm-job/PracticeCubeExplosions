@@ -8,6 +8,11 @@ public class RandomCountChance : MonoBehaviour
     private float chance;
     private float divider = 2f;
 
+    //public RandomCountChance()
+    //{
+    //    CreateChance();
+    //}
+
     public bool CreateChance()
     {
         chance = Random.value;

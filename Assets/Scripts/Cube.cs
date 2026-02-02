@@ -9,6 +9,15 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
+    private RandomCountChance randomChance = new();
     public MeshRenderer MeshRenderer { get; set; }
     public Rigidbody Rigidbody { get; set; }
+
+
+    public bool ReturnChance()
+    {
+        bool chance = randomChance.CreateChance();
+
+        return chance;
+    }
 }

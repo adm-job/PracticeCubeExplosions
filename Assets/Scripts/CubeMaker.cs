@@ -10,7 +10,6 @@ public class CubeMaker : MonoBehaviour
     [SerializeField] private Raycaster _raycastre;
     [SerializeField] private Vector3 _offset = new Vector3(0, 2f, 0);
 
-    private RandomCountChance _divisibleObject = new();
     private float _maxClone = 5f;
     private float _minClone = 2f;
     private float _maxCubes;
@@ -37,7 +36,7 @@ public class CubeMaker : MonoBehaviour
 
     private void Copy(Cube cube)
     {
-        if (_divisibleObject.CreateChance())
+        if (cube.ReturnChance())
         {
             for (float i = 0; i < _maxCubes; i++)
             {
@@ -47,15 +46,11 @@ public class CubeMaker : MonoBehaviour
                     cube.transform.rotation
                     );
 
-                clone.name = cube.name +""+ i;
+                clone.name = cube.name + "" + i;
                 clone.transform.localScale = new Vector3(clone.transform.localScale.x / 2, clone.transform.localScale.y / 2, clone.transform.localScale.z / 2);
 
-                //Renderer renderer = clone.Renderer;
 
-                //if (renderer != null)
-                //{
-                    clone.MeshRenderer.material.color = UnityEngine.Random.ColorHSV();
-                //}
+                clone.MeshRenderer.material.color = UnityEngine.Random.ColorHSV();
 
                 RigidbodyCubes.Add(clone.Rigidbody);
             }
