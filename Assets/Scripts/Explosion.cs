@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
@@ -7,7 +8,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
 
-    private CubeMaker _cubeSpawner;
+    private CubeMaker _cubeSpawner =new ();
 
     private void OnEnable()
     {
