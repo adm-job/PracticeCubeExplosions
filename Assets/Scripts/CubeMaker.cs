@@ -8,11 +8,12 @@ using System.Drawing;
 public class CubeMaker : MonoBehaviour
 {
     [SerializeField] private Raycaster _raycastre;
-    [SerializeField] private Vector3 _offset = new Vector3(0, 2f, 0);
+    [SerializeField] private Vector3 _offset = new (0, 2f, 0);
 
     private float _maxClone = 5f;
     private float _minClone = 2f;
     private float _maxCubes;
+    private float divider = 2f;
 
     public List<Rigidbody> RigidbodyCubes;
     public event Action<List<Rigidbody>> CubesSpawned;
@@ -36,6 +37,7 @@ public class CubeMaker : MonoBehaviour
 
     private void Copy(Cube cube)
     {
+
         if (cube.ReturnChance())
         {
             for (float i = 0; i < _maxCubes; i++)
@@ -45,12 +47,12 @@ public class CubeMaker : MonoBehaviour
                     cube.transform.position + _offset,
                     cube.transform.rotation
                     );
+                
 
-                clone.name = cube.name + "" + i;
+                clone.name = cube.name;
                 clone.transform.localScale = new Vector3(clone.transform.localScale.x / 2, clone.transform.localScale.y / 2, clone.transform.localScale.z / 2);
-
-
-                clone.MeshRenderer.material.color = UnityEngine.Random.ColorHSV();
+                clone.ReadNewChance(cube.Chance / divider);
+                clone.Renderer.material.color = UnityEngine.Random.ColorHSV();
 
                 RigidbodyCubes.Add(clone.Rigidbody);
             }

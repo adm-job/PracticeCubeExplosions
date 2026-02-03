@@ -6,19 +6,13 @@ public class RandomCountChance : MonoBehaviour
 {
     private float _chance = 1f;
     private float chance;
-    private float divider = 2f;
 
-    //public RandomCountChance()
-    //{
-    //    CreateChance();
-    //}
-
-    public bool CreateChance()
+    public bool CreateChance(float chanse)
     {
+        _chance = chanse;
         chance = Random.value;
         if (chance <= _chance)
         {
-            _chance /= divider;
             return true;
         }
         else

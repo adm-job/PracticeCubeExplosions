@@ -381,7 +381,6 @@ GameObject:
   - component: {fileID: 1028916099}
   - component: {fileID: 1028916098}
   - component: {fileID: 1028916102}
-  - component: {fileID: 1028916103}
   - component: {fileID: 1028916105}
   - component: {fileID: 1028916104}
   - component: {fileID: 1028916106}
@@ -490,20 +489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d295610aca89954a93270f7e8389214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1028916103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028916096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f7e71cc2a1b1fd498e268d9e8b4dec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _explosionRadius: 300
-  _explosionForce: 1000
 --- !u!114 &1028916104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,6 +551,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1826432376}
   - component: {fileID: 1826432378}
+  - component: {fileID: 1826432380}
+  - component: {fileID: 1826432379}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -604,7 +591,33 @@ MonoBehaviour:
   _maxDistance: 20
   _radius: 0.1
   _mouseInput: {fileID: 969189104}
-  _cube: {fileID: 0}
+--- !u!114 &1826432379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826432375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7e71cc2a1b1fd498e268d9e8b4dec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionRadius: 300
+  _explosionForce: 500
+--- !u!114 &1826432380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826432375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acac4f47d070e6458e509a45cf88468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Explosion: {fileID: 1826432379}
 --- !u!1 &1983770142
 GameObject:
   m_ObjectHideFlags: 0

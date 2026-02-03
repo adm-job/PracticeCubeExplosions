@@ -7,7 +7,7 @@ public class Raycaster : MonoBehaviour
     [SerializeField] private float _maxDistance = 20f;
     [SerializeField] private float _radius = 0.1f;
     [SerializeField] private InputReader _mouseInput;
-    [SerializeField] private Cube _cube;
+    private Cube _cube;
 
     public event Action<Cube> ObjectSelected;
 

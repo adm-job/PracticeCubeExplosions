@@ -10,14 +10,27 @@ using UnityEngine;
 public class Cube : MonoBehaviour
 {
     [SerializeField] private RandomCountChance _randomChance;
-    public MeshRenderer MeshRenderer { get; set; }
-    public Rigidbody Rigidbody { get; set; }
+    private float _chance = 1;
+    
+    public MeshRenderer Renderer { get;private set; }
+    public Rigidbody Rigidbody { get; private set; }
 
+    public float Chance { get; private set; }
+
+    private void Awake()
+    {
+        Renderer = GetComponent<MeshRenderer>();
+        Rigidbody = GetComponent<Rigidbody>();
+        Chance = _chance;
+    }
 
     public bool ReturnChance()
     {
-        bool chance = _randomChance.CreateChance();
+        return _randomChance.CreateChance(_chance);
+    }
 
-        return chance;
+    public void ReadNewChance(float newChance)
+    {
+        _chance = newChance;
     }
 }
