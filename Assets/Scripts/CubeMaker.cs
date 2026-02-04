@@ -24,7 +24,6 @@ public class CubeMaker : MonoBehaviour
 
     public void Copy(Cube cube)
     {
-
         for (float i = 0; i < _maxCubes; i++)
         {
             Cube clone = Instantiate(
@@ -33,19 +32,27 @@ public class CubeMaker : MonoBehaviour
                 cube.transform.rotation
                 );
 
-            clone.name = cube.name;
+            clone.name = cube.name + "" + i;
             clone.transform.localScale = new Vector3(clone.transform.localScale.x / 2, clone.transform.localScale.y / 2, clone.transform.localScale.z / 2);
-            clone.WriteChance—rushing(cube.—hance—rushing / divider);
             clone.Renderer.material.color = UnityEngine.Random.ColorHSV();
+
+            if (cube.—hance—rushing > 0)
+            {
+                clone.WriteChance—rushing(cube.—hance—rushing / divider);
+            }
+            else
+            {
+                clone.WriteChance—rushing(0);
+            }
+
 
             RigidbodyCubes.Add(clone.Rigidbody);
         }
 
         CubesSpawned?.Invoke(RigidbodyCubes);
-
     }
 
-    private void Remove(Cube cube)
+    public void Remove(Cube cube)
     {
         Destroy(cube.gameObject);
     }

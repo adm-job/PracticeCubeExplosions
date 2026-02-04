@@ -8,28 +8,40 @@ public class GameEngine : MonoBehaviour
 {
     [SerializeField] private Explosion Explosion;
     [SerializeField] private CubeMaker CubeMaker;
-
     [SerializeField] private Raycaster Raycaster;
+    [SerializeField] private InputReader inputReader;
 
     private void OnEnable()
     {
-        Raycaster.ObjectSelected += Test;
+        inputReader.Clicked += InputMouse;
+        Raycaster.ObjectSelected += CopyCube;
+        CubeMaker.CubesSpawned += Exploded; 
     }
 
     private void OnDisable()
     {
-        Raycaster.ObjectSelected += Test;
+        inputReader.Clicked -= InputMouse;
+        Raycaster.ObjectSelected -= CopyCube;
+        CubeMaker.CubesSpawned -= Exploded;
     }
 
-    public void Test(Cube cube)
+    private void InputMouse(Vector3 input)
+    {
+        Raycaster.RayCast(input);
+    }
+
+    private void CopyCube(Cube cube)
     { 
         if (cube.ÑhanceÑrushing >= UnityEngine.Random.value)
         {
             CubeMaker.Copy(cube);
         }
-        else
-        {
-            Exception.
-        }
+
+        CubeMaker.Remove(cube);
+    }
+
+    private void Exploded(List<Rigidbody> rigidbodies)
+    {
+        Explosion.Exploded(rigidbodies);
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class Cube : MonoBehaviour
 {
-    private float _chance—rushing = 1;
+    private float _chance—rushing = 1.0f;
     
     public MeshRenderer Renderer { get;private set; }
     public Rigidbody Rigidbody { get; private set; }
