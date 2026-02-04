@@ -7,7 +7,6 @@ public class Raycaster : MonoBehaviour
     [SerializeField] private float _maxDistance = 20f;
     [SerializeField] private float _radius = 0.1f;
     [SerializeField] private InputReader _mouseInput;
-    private Cube _cube;
 
     public event Action<Cube> ObjectSelected;
 
@@ -21,19 +20,13 @@ public class Raycaster : MonoBehaviour
         _mouseInput.Clicked -= RayCast;
     }
 
-    private void RayCast()
+    private void RayCast(Vector3 input)
     {
-        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = _camera.ScreenPointToRay(input);
 
-        RaycastHit hit;
-
-        Debug.DrawRay(ray.origin, ray.direction * _maxDistance, Color.magenta);
-
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
         {
-            GameObject objectHit = hit.collider.gameObject;
-            
-            if (hit.collider.TryGetComponent<Cube>(out _cube))
+            if (hit.collider.TryGetComponent<Cube>(out Cube _cube))
             {
                 ObjectSelected?.Invoke(_cube);
             }

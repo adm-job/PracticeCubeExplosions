@@ -6,11 +6,11 @@ using UnityEngine.Events;
 public class InputReader : MonoBehaviour
 {
     private int _mouseButton = 0;
-    public event Action Clicked;
+    public event Action<Vector3> Clicked;
 
     public void Update()
     {
         if (Input.GetMouseButtonDown(_mouseButton))
-            Clicked?.Invoke();
+            Clicked?.Invoke(Input.mousePosition);
     }
 }

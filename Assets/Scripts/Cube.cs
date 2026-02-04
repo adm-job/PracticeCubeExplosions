@@ -6,7 +6,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(MeshRenderer))]
-
 public class Cube : MonoBehaviour
 {
     [SerializeField] private RandomCountChance _randomChance;
