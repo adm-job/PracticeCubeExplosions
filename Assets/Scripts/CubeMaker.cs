@@ -38,7 +38,7 @@ public class CubeMaker : MonoBehaviour
     private void Copy(Cube cube)
     {
 
-        if (cube.ReturnChance())
+        if (cube.ÑhanceÑrushing >= UnityEngine.Random.value)
         {
             for (float i = 0; i < _maxCubes; i++)
             {
@@ -51,7 +51,7 @@ public class CubeMaker : MonoBehaviour
 
                 clone.name = cube.name;
                 clone.transform.localScale = new Vector3(clone.transform.localScale.x / 2, clone.transform.localScale.y / 2, clone.transform.localScale.z / 2);
-                clone.ReadNewChance(cube.Chance / divider);
+                clone.WriteChanceÑrushing(cube.ÑhanceÑrushing / divider);
                 clone.Renderer.material.color = UnityEngine.Random.ColorHSV();
 
                 RigidbodyCubes.Add(clone.Rigidbody);

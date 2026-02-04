@@ -8,28 +8,22 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class Cube : MonoBehaviour
 {
-    [SerializeField] private RandomCountChance _randomChance;
-    private float _chance = 1;
+    private float _chance—rushing = 1;
     
     public MeshRenderer Renderer { get;private set; }
     public Rigidbody Rigidbody { get; private set; }
 
-    public float Chance { get; private set; }
+    public float —hance—rushing { get; private set; }
 
     private void Awake()
     {
         Renderer = GetComponent<MeshRenderer>();
         Rigidbody = GetComponent<Rigidbody>();
-        Chance = _chance;
+        —hance—rushing = _chance—rushing;
     }
 
-    public bool ReturnChance()
+    public void WriteChance—rushing(float newChance)
     {
-        return _randomChance.CreateChance(_chance);
-    }
-
-    public void ReadNewChance(float newChance)
-    {
-        _chance = newChance;
+        _chance—rushing = newChance;
     }
 }
