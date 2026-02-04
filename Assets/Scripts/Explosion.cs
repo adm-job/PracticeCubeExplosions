@@ -8,18 +8,6 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
 
-    private CubeMaker _cubeSpawner;
-
-    private void OnEnable()
-    {
-        _cubeSpawner.CubesSpawned += Exploded;
-    }
-
-    private void OnDisable()
-    {
-        _cubeSpawner.CubesSpawned += Exploded;
-    }
-
     public void Exploded(List<Rigidbody> cubeRigidbody)
     {
         foreach (var explosionCubes in cubeRigidbody)
