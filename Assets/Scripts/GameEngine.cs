@@ -32,7 +32,7 @@ public class GameEngine : MonoBehaviour
 
     private void CopyCube(Cube cube)
     { 
-        if (cube.ÑhanceÑrushing >= UnityEngine.Random.value)
+        if (cube.ChanceCrushing >= UnityEngine.Random.value)
         {
             CubeMaker.Copy(cube);
         }

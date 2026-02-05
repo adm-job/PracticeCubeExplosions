@@ -38,9 +38,9 @@ public class CubeMaker : MonoBehaviour
             clone.transform.localScale = new Vector3(clone.transform.localScale.x / 2, clone.transform.localScale.y / 2, clone.transform.localScale.z / 2);
             clone.Renderer.material.color = UnityEngine.Random.ColorHSV();
 
-            if (cube.—hance—rushing > 0)
+            if (cube.ChanceCrushing > 0)
             {
-                clone.WriteChance—rushing(cube.—hance—rushing / divider);
+                clone.WriteChance—rushing(cube.ChanceCrushing / divider);
             }
             else
             {

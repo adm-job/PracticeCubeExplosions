@@ -8,23 +8,24 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class Cube : MonoBehaviour
 {
-    private float _chance—rushing = 1.0f;
+    private float _chanceCrushing = 1.0f;
     
     public MeshRenderer Renderer { get;private set; }
     public Rigidbody Rigidbody { get; private set; }
 
-    public float —hance—rushing { get; private set; }
+    public float ChanceCrushing { get; private set; }
 
     private void Awake()
     {
         Renderer = GetComponent<MeshRenderer>();
         Rigidbody = GetComponent<Rigidbody>();
-        Debug.Log("ÿ¿Õ— = " + _chance—rushing);
-        —hance—rushing = _chance—rushing;
+        ChanceCrushing = _chanceCrushing;
+        Debug.Log("ÿ¿Õ— = " + _chanceCrushing);
     }
 
     public void WriteChance—rushing(float newChance)
     {
-        _chance—rushing = newChance;
+        _chanceCrushing = newChance;
+        ChanceCrushing = newChance;
     }
 }
