@@ -24,6 +24,8 @@ public class CubeMaker : MonoBehaviour
 
     public void Copy(Cube cube)
     {
+        RigidbodyCubes.Clear();
+
         for (float i = 0; i < _maxCubes; i++)
         {
             Cube clone = Instantiate(
