@@ -19,6 +19,7 @@ public class Cube : MonoBehaviour
     {
         Renderer = GetComponent<MeshRenderer>();
         Rigidbody = GetComponent<Rigidbody>();
+        Debug.Log("ÿ¿Õ— = " + _chance—rushing);
         —hance—rushing = _chance—rushing;
     }
 

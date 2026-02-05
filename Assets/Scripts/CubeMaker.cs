@@ -12,7 +12,7 @@ public class CubeMaker : MonoBehaviour
     private float _maxClone = 5f;
     private float _minClone = 2f;
     private float _maxCubes;
-    private float divider = 2f;
+    private float divider = 2.0f;
 
     public List<Rigidbody> RigidbodyCubes;
     public event Action<List<Rigidbody>> CubesSpawned;
@@ -46,7 +46,6 @@ public class CubeMaker : MonoBehaviour
             {
                 clone.WriteChance—rushing(0);
             }
-
 
             RigidbodyCubes.Add(clone.Rigidbody);
         }
