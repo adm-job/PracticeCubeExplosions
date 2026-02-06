@@ -40,11 +40,11 @@ public class CubeMaker : MonoBehaviour
 
             if (cube.ChanceCrushing > 0)
             {
-                clone.WriteChance—rushing(cube.ChanceCrushing / divider);
+                clone.WriteChanceCrushing(cube.ChanceCrushing / divider);
             }
             else
             {
-                clone.WriteChance—rushing(0);
+                clone.WriteChanceCrushing(0);
             }
 
             RigidbodyCubes.Add(clone.Rigidbody);

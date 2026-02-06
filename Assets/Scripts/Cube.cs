@@ -23,7 +23,7 @@ public class Cube : MonoBehaviour
         Debug.Log("ÿ¿Õ— = " + _chanceCrushing);
     }
 
-    public void WriteChance—rushing(float newChance)
+    public void WriteChanceCrushing(float newChance)
     {
         _chanceCrushing = newChance;
         ChanceCrushing = newChance;
