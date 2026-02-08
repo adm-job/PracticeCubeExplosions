@@ -7,7 +7,6 @@ public class Explosion : MonoBehaviour
 {
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
-    [SerializeField] private ParticleSystem _effect;
     
     float _explosionRadiusNormal;
     float _explosionForceNormal;
