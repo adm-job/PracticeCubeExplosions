@@ -10,10 +10,12 @@ public class Explosion : MonoBehaviour
     [SerializeField] private ParticleSystem _effect;
     
     float _explosionRadiusNormal;
+    float _explosionForceNormal;
 
     private void Awake()
     {
         _explosionRadiusNormal = _explosionRadius;
+        _explosionForceNormal = _explosionForce;
     }
 
     public void Exploded(List<Rigidbody> cubeRigidbody)
@@ -47,10 +49,12 @@ public class Explosion : MonoBehaviour
     private void ChangingExplosionRadius(float radiusMultiplier)
     {
         _explosionRadius /= radiusMultiplier;
+        _explosionForce /= radiusMultiplier;
     }
 
     private void ResetExplosionRadius()
     {
         _explosionRadius = _explosionRadiusNormal;
+        _explosionForce = _explosionForceNormal;
     }
 }
