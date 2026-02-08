@@ -8,6 +8,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
     [SerializeField] private ParticleSystem _effect;
+    
     float _explosionRadiusNormal;
 
     private void Awake()
@@ -19,7 +20,6 @@ public class Explosion : MonoBehaviour
     {
         foreach (var explosionCubes in cubeRigidbody)
         {
-            Debug.Log("Радиус = " + _explosionRadius);
             explosionCubes.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
         }
 

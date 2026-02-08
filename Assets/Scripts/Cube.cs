@@ -19,12 +19,10 @@ public class Cube : MonoBehaviour
         Renderer = GetComponent<MeshRenderer>();
         Rigidbody = GetComponent<Rigidbody>();
         ChanceCrushing = _chanceCrushing;
-        Debug.Log("ьюмя = " + _chanceCrushing);
     }
 
     public void WriteChanceCrushing(float newChance)
     {
-        Debug.Log("ьюмя = " + _chanceCrushing);
         _chanceCrushing = newChance;
         ChanceCrushing = newChance;
     }
