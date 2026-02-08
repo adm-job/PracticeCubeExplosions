@@ -15,7 +15,7 @@ public class GameEngine : MonoBehaviour
     {
         inputReader.Clicked += InputMouse;
         Raycaster.ObjectSelected += CopyCube;
-        CubeMaker.CubesSpawned += Exploded; 
+        CubeMaker.CubesSpawned += Exploded;
     }
 
     private void OnDisable()
@@ -31,13 +31,18 @@ public class GameEngine : MonoBehaviour
     }
 
     private void CopyCube(Cube cube)
-    { 
+    {
         if (cube.ChanceCrushing >= UnityEngine.Random.value)
         {
             CubeMaker.Copy(cube);
+            CubeMaker.Remove(cube);
         }
-
-        CubeMaker.Remove(cube);
+        else
+        {
+            Explosion.ExplodedAll(cube.transform,cube.ChanceCrushing);
+            CubeMaker.Remove(cube);
+        
+        }
     }
 
     private void Exploded(List<Rigidbody> rigidbodies)

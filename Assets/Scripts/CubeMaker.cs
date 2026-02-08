@@ -57,4 +57,5 @@ public class CubeMaker : MonoBehaviour
     {
         Destroy(cube.gameObject);
     }
+
 }

@@ -12,7 +12,6 @@ public class Cube : MonoBehaviour
     
     public MeshRenderer Renderer { get;private set; }
     public Rigidbody Rigidbody { get; private set; }
-
     public float ChanceCrushing { get; private set; }
 
     private void Awake()
@@ -25,6 +24,7 @@ public class Cube : MonoBehaviour
 
     public void WriteChanceCrushing(float newChance)
     {
+        Debug.Log("ьюмя = " + _chanceCrushing);
         _chanceCrushing = newChance;
         ChanceCrushing = newChance;
     }
