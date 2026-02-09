@@ -35,14 +35,13 @@ public class GameEngine : MonoBehaviour
         if (cube.ChanceCrushing >= UnityEngine.Random.value)
         {
             CubeMaker.Copy(cube);
-            CubeMaker.Remove(cube);
         }
         else
         {
-            Explosion.ExplodedAll(cube.transform,cube.ChanceCrushing);
-            CubeMaker.Remove(cube);
-        
+            Explosion.ExplodedAll(cube.transform, cube.ChanceCrushing);
         }
+
+        CubeMaker.Remove(cube);
     }
 
     private void Exploded(List<Rigidbody> rigidbodies)
