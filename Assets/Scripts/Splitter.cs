@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameEngine : MonoBehaviour
+public class Splitter : MonoBehaviour
 {
     [SerializeField] private Explosion Explosion;
     [SerializeField] private CubeMaker CubeMaker;
