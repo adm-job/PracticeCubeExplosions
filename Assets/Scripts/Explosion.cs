@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -8,8 +9,8 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
     
-    float _explosionRadiusNormal;
-    float _explosionForceNormal;
+    private float _explosionRadiusNormal;
+    private float _explosionForceNormal;
 
     private void Awake()
     {
@@ -17,19 +18,19 @@ public class Explosion : MonoBehaviour
         _explosionForceNormal = _explosionForce;
     }
 
-    public void Exploded(List<Rigidbody> cubeRigidbody)
+    public void Exploded(List<Rigidbody> cubeRigidbody, Vector3 pointExplosion)
     {
         foreach (var explosionCubes in cubeRigidbody)
         {
-            explosionCubes.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
+            explosionCubes.AddExplosionForce(_explosionForce, pointExplosion, _explosionRadius);
         }
 
         ResetExplosionRadius();
     }
 
-    public void ExplodedAll(Transform transform, float radiusMultiplier)
+    public void ExplodedAll(Vector3 pointExplosion, float radiusMultiplier)
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius);
+        Collider[] hits = Physics.OverlapSphere(pointExplosion, _explosionRadius);
 
         List<Rigidbody> allCubes = new();
 
@@ -42,7 +43,7 @@ public class Explosion : MonoBehaviour
         }
 
         ChangingExplosionRadius(radiusMultiplier);
-        Exploded(allCubes);
+        Exploded(allCubes, pointExplosion);
     }
 
     private void ChangingExplosionRadius(float radiusMultiplier)

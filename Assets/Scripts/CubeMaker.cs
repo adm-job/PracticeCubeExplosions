@@ -15,7 +15,7 @@ public class CubeMaker : MonoBehaviour
     private float divider = 2.0f;
 
     public List<Rigidbody> RigidbodyCubes;
-    public event Action<List<Rigidbody>> CubesSpawned;
+    public event Action<List<Rigidbody>,Vector3> CubesSpawned;
 
     private void Start()
     {
@@ -50,7 +50,7 @@ public class CubeMaker : MonoBehaviour
             RigidbodyCubes.Add(clone.Rigidbody);
         }
 
-        CubesSpawned?.Invoke(RigidbodyCubes);
+        CubesSpawned?.Invoke(RigidbodyCubes,cube.transform.position);
     }
 
     public void Remove(Cube cube)

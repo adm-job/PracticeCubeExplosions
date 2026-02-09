@@ -38,14 +38,14 @@ public class Splitter : MonoBehaviour
         }
         else
         {
-            Explosion.ExplodedAll(cube.transform, cube.ChanceCrushing);
+            Explosion.ExplodedAll(cube.transform.position, cube.ChanceCrushing);
         }
 
         CubeMaker.Remove(cube);
     }
 
-    private void Exploded(List<Rigidbody> rigidbodies)
+    private void Exploded(List<Rigidbody> rigidbodies, Vector3 pointExplosion)
     {
-        Explosion.Exploded(rigidbodies);
+        Explosion.Exploded(rigidbodies, pointExplosion);
     }
 }
